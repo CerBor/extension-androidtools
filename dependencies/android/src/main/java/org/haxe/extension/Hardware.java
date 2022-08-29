@@ -12,6 +12,7 @@ import android.graphics.Point;
 import android.net.Uri;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
+import android.content.res.Configuration;
 import android.os.Vibrator;
 import android.view.Display;
 import android.view.WindowManager;
@@ -84,6 +85,17 @@ public class Hardware extends Extension {
             Extension.mainActivity.getWindow().getAttributes();
         layout.screenBrightness = brightness;
         Extension.mainActivity.getWindow().setAttributes(layout);
+    }
+
+    public static float getBrightness() {
+        WindowManager.LayoutParams layout =
+            Extension.mainActivity.getWindow().getSttributes();
+        return layout.screenBrightness;
+    }
+
+    public static boolean isNightMode() {
+        int nightModeFlags = mainContext.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        return nightModeFlags == Configuration.UI_MODE_NIGHT_YES;
     }
 
     public static void vibrate(int duration) {
