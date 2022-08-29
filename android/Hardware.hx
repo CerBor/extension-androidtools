@@ -65,6 +65,22 @@ class Hardware
 		var setbrightness_set_brightness_jni:Dynamic = JNI.createStaticMethod('org/haxe/extension/Hardware', 'setBrightness', '(F)V');
 		setbrightness_set_brightness_jni(brightness);
 	}
+ 
+	/**
+	 * Gets the phone brightness.
+	 */
+	public static function getBrightness() {
+		var brightness = JNI.createStaticMethod('org/haxe/extension/Hardware', 'getBrightness', '()F');
+		return brightness;
+	}
+
+	/**
+	 * Gets whether it's dark or light mode enabled.
+	 */
+	public static function isNightMode() {
+		var isNight = JNI.createStaticMethod('org/haxe/extension/Hardware', 'isNightMode', '()B');
+		return isNight;
+	}
 
 	/**
 	 * Makes the Phone vibrate, the time is in miliseconds btw.
