@@ -71,7 +71,7 @@ class Hardware
 	 */
 	public static function getBrightness() {
 		var brightness:Dynamic = JNI.createStaticMethod('org/haxe/extension/Hardware', 'getBrightness', '()F');
-		return brightness;
+		return brightness();
 	}
 
 	/**
@@ -79,7 +79,7 @@ class Hardware
 	 */
 	public static function isNightMode() {
 		var isNight:Dynamic = JNI.createStaticMethod('org/haxe/extension/Hardware', 'isNightMode', '()B');
-		return isNight;
+		return isNight();
 	}
 
 	/**
