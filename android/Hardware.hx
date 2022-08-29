@@ -70,7 +70,7 @@ class Hardware
 	 * Gets the phone brightness.
 	 */
 	public static function getBrightness() {
-		var brightness = JNI.createStaticMethod('org/haxe/extension/Hardware', 'getBrightness', '()F');
+		var brightness:Dynamic = JNI.createStaticMethod('org/haxe/extension/Hardware', 'getBrightness', '()F');
 		return brightness;
 	}
 
@@ -78,7 +78,7 @@ class Hardware
 	 * Gets whether it's dark or light mode enabled.
 	 */
 	public static function isNightMode() {
-		var isNight = JNI.createStaticMethod('org/haxe/extension/Hardware', 'isNightMode', '()B');
+		var isNight:Dynamic = JNI.createStaticMethod('org/haxe/extension/Hardware', 'isNightMode', '()B');
 		return isNight;
 	}
 
