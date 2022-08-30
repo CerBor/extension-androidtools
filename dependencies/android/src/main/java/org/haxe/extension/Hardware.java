@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Vibrator;
 import android.view.Display;
 import android.view.WindowManager;
@@ -94,8 +95,12 @@ public class Hardware extends Extension {
     }
 
     public static boolean isNightMode() {
-        int nightModeFlags = mainContext.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
-        return nightModeFlags == Configuration.UI_MODE_NIGHT_YES;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
+            int nightModeFlags = mainContext.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+            return nightModeFlags == Configuration.UI_MODE_NIGHT_YES;
+        } else {
+            return false;
+        }
     }
 
     public static void vibrate(int duration) {
