@@ -89,7 +89,7 @@ public class Hardware extends Extension {
 
     public static float getBrightness() {
         WindowManager.LayoutParams layout =
-            Extension.mainActivity.getWindow().getSttributes();
+            Extension.mainActivity.getWindow().getAttributes();
         return layout.screenBrightness;
     }
 
